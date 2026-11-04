@@ -76,7 +76,7 @@
   .hero-links svg { width: 14px; height: 14px; }
 
   .hero-stage {
-    position: relative; overflow: hidden; background: #000; cursor: none;
+    position: relative; overflow: hidden; background: var(--navy-deep); cursor: none;
     user-select: none; touch-action: none; min-height: 360px;
   }
   .hero-stage img {
@@ -84,7 +84,7 @@
   }
   .hero-stage::before {
     content: ""; position: absolute; inset: 0; z-index: 3; pointer-events: none;
-    background: linear-gradient(90deg, var(--navy-deep) 0%, rgba(13,27,51,0) 22%);
+    background: linear-gradient(90deg, var(--navy-deep) 0%, rgba(13,27,51,0) 18%, rgba(13,27,51,0) 82%, var(--navy-deep) 100%);
   }
   .stage-map { clip-path: circle(0px at 50% 50%); transition: clip-path .18s ease-out; z-index: 2; }
   .stage-ring {
