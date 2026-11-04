@@ -1,14 +1,292 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Piyush Kumar Prajapati - PhD Research Scholar, Centre for Biomedical Engineering, IIT Delhi. Quantitative MRI and deep learning for medical imaging." />
-    <title>Piyush Kumar Prajapati - IIT Delhi</title>
-    <script type="module" crossorigin src="./assets/index-aFHxnB5c.js"></script>
-    <link rel="stylesheet" crossorigin href="./assets/index-DA7tlbG6.css">
-  </head>
-  <body>
-    <div id="root"></div>
-  </body>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Piyush Kumar Prajapati</title>
+<meta name="description" content="Piyush Kumar Prajapati, PhD Scholar, Centre for Biomedical Engineering, IIT Delhi. Quantitative MRI and deep learning for medical imaging.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #ffffff;
+    --text: #1f2328;
+    --muted: #5f6670;
+    --rule: #e6e8eb;
+    --accent: #1d4ed8;
+    --tag-bg: #f2f4f7;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #111418;
+      --text: #e6e8eb;
+      --muted: #9aa3ad;
+      --rule: #262b31;
+      --accent: #7aa2ff;
+      --tag-bg: #1b2026;
+    }
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; scroll-padding-top: 64px; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font: 16px/1.65 "Inter", system-ui, -apple-system, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  nav {
+    position: sticky; top: 0; z-index: 10;
+    background: var(--bg);
+    border-bottom: 1px solid var(--rule);
+  }
+  nav .inner {
+    max-width: 760px; margin: 0 auto; padding: 14px 20px;
+    display: flex; gap: 20px; align-items: center; flex-wrap: wrap;
+    font-size: 14px;
+  }
+  nav .name { font-weight: 600; color: var(--text); margin-right: auto; }
+  nav a:not(.name) { color: var(--muted); }
+  nav a:not(.name):hover { color: var(--text); text-decoration: none; }
+
+  main { max-width: 760px; margin: 0 auto; padding: 48px 20px 80px; }
+
+  header h1 {
+    font-family: "Source Serif 4", Georgia, serif;
+    font-weight: 600; font-size: 2.2rem; line-height: 1.2;
+    margin: 0 0 6px;
+  }
+  header .role { color: var(--muted); margin: 0 0 16px; }
+  .links { display: flex; flex-wrap: wrap; gap: 6px 18px; font-size: 15px; }
+
+  section { margin-top: 56px; }
+  h2 {
+    font-family: "Source Serif 4", Georgia, serif;
+    font-weight: 600; font-size: 1.35rem;
+    margin: 0 0 18px; padding-bottom: 8px;
+    border-bottom: 1px solid var(--rule);
+  }
+  p { margin: 0 0 14px; }
+
+  .interests { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 18px; }
+  .interests span {
+    background: var(--tag-bg); color: var(--muted);
+    font-size: 13px; padding: 3px 10px; border-radius: 999px;
+  }
+
+  .entry { margin-bottom: 22px; }
+  .entry .top { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+  .entry .title { font-weight: 600; }
+  .entry .date { color: var(--muted); font-size: 14px; white-space: nowrap; }
+  .entry .sub { color: var(--muted); font-size: 15px; }
+  .entry ul { margin: 6px 0 0; padding-left: 18px; }
+  .entry li { margin-bottom: 4px; font-size: 15px; }
+
+  ol.pubs { list-style: none; padding: 0; margin: 0; }
+  ol.pubs li { margin-bottom: 18px; font-size: 15px; }
+  .venue {
+    display: inline-block; font-size: 12px; font-weight: 600;
+    color: var(--accent); background: var(--tag-bg);
+    padding: 1px 8px; border-radius: 4px; margin-right: 6px;
+  }
+  .ptitle { display: block; font-weight: 500; margin-top: 4px; }
+  .authors { color: var(--muted); }
+  .authors b { color: var(--text); font-weight: 600; }
+  .plink { font-size: 13px; margin-left: 4px; }
+
+  footer {
+    max-width: 760px; margin: 0 auto; padding: 24px 20px 40px;
+    color: var(--muted); font-size: 13px; border-top: 1px solid var(--rule);
+  }
+  @media (max-width: 560px) {
+    nav .inner { gap: 12px; }
+    nav .name { width: 100%; }
+    header h1 { font-size: 1.8rem; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="inner">
+    <a class="name" href="#top">Piyush Kumar Prajapati</a>
+    <a href="#publications">Publications</a>
+    <a href="#education">Education</a>
+    <a href="#experience">Experience</a>
+    <a href="#teaching">Teaching</a>
+    <a href="#contact">Contact</a>
+    <a href="Piyush_Prajapati_CV.pdf">CV</a>
+  </div>
+</nav>
+
+<main id="top">
+
+  <header>
+    <h1>Piyush Kumar Prajapati</h1>
+    <p class="role">PhD Scholar, Centre for Biomedical Engineering, IIT Delhi · New Delhi, India</p>
+    <div class="links">
+      <a href="Piyush_Prajapati_CV.pdf">CV (PDF)</a>
+      <a href="mailto:piyushkp27@gmail.com">Email</a>
+      <a href="https://scholar.google.com/citations?user=yC81rO8AAAAJ&amp;hl=en">Google Scholar</a>
+      <a href="https://github.com/piyushkp27">GitHub</a>
+      <a href="https://x.com/piyushkp27">X / Twitter</a>
+    </div>
+  </header>
+
+  <section id="about">
+    <h2>About</h2>
+    <p>I am a PhD scholar at the <a href="https://cbme.iitd.ac.in/">Centre for Biomedical Engineering, IIT Delhi</a>, working with Prof. Anup Singh in the MedImg Lab. My thesis is on quantitative MRI and its applications.</p>
+    <p>I build deep learning methods for fast, reliable quantitative DCE-MRI in brain tumors: CNN estimators, an AIF-free three-point framework, and physics-separable networks with probabilistic and diffusion posteriors. On grade 2 to 4 gliomas these run about 66 times faster than conventional fitting, with similar grading accuracy, calibrated uncertainty, and robustness at a quarter of the standard contrast dose.</p>
+    <div class="interests">
+      <span>Quantitative MRI</span><span>Physics-Informed Neural Networks</span><span>Medical Image Analysis</span>
+      <span>Deep Learning</span><span>Computer Vision</span><span>Generative AI &amp; Diffusion Models</span>
+      <span>Uncertainty Quantification</span><span>Image Segmentation</span><span>AI in Healthcare</span>
+    </div>
+  </section>
+
+  <section id="publications">
+    <h2>Publications</h2>
+    <ol class="pubs">
+      <li><span class="venue">MICCAI 2026</span>
+        <span class="ptitle">RACER: A Radiomic-Adaptive Cohort Ensemble with Refinement for Cross-cohort Brain Tumor Segmentation using Deep Learning</span>
+        <span class="authors"><b>P. K. Prajapati</b>, M. T. Sheikh, A. Choudhary, M. Parikh, A. Singh. BraTS Generalizability Across Tumors Challenge, MICCAI 2026 Satellite Events, Strasbourg, France.</span>
+        <a class="plink" href="https://papers.miccai.org/miccai-2026-sat/paper/BraTS_GoAT_008.pdf">[PDF]</a></li>
+      <li><span class="venue">Magnetic Resonance Imaging 2026</span>
+        <span class="ptitle">Deep Learning Approach for DCE-MRI Parameter Estimation: Evaluating Signal Intensity and Concentration-Time Curve-Based Convolution Neural Networks</span>
+        <span class="authors"><b>P. K. Prajapati</b>, R. K. Gupta, A. Singh. Vol. 126, 110559.</span>
+        <a class="plink" href="https://doi.org/10.1016/j.mri.2025.110559">[DOI]</a></li>
+      <li><span class="venue">Under Review</span>
+        <span class="ptitle">Multiparametric MRI-based Longitudinal Assessment of Residual Tumor Volume and Microvascular Changes Following Glioblastoma Resection</span>
+        <span class="authors">M. T. Sheikh, A. Kandpal, V. K. Yadav, <b>P. K. Prajapati</b>, R. K. Singh, R. Patir, S. Vaishya, S. Ahlawat, R. K. Gupta, A. Singh.</span></li>
+      <li><span class="venue">Ready for Submission</span>
+        <span class="ptitle">Non-invasive Mapping of Tumor Cell Infiltration in the Peritumoral Region of Glioblastoma using Quantitative Dynamic Contrast Enhanced Perfusion MRI</span>
+        <span class="authors"><b>P. K. Prajapati</b>, A. Kandpal, S. Srivastava, R. Patir, M. C. Sharma, S. Vaishya, R. K. Singh, R. K. Gupta, A. Singh.</span></li>
+      <li><span class="venue">In Preparation</span>
+        <span class="ptitle">Dose-Robust and Acquisition-Independent Deep Learning for DCE-MRI Tracer-Kinetic Parameter Estimation: Application in Glioma</span>
+        <span class="authors"><b>P. K. Prajapati</b>, A. Kandpal, M. T. Sheikh, R. K. Singh, R. K. Gupta, A. Singh.</span></li>
+      <li><span class="venue">IJSE 2015</span>
+        <span class="ptitle">Application Based Study of the Architecture of a SCADA System and Operational Stages</span>
+        <span class="authors"><b>P. Prajapati</b>, L. Kumar. International Journal of Science and Engineering, Vol. 3, pp. 137–141 (presented at ICAESM 2015, Agra).</span>
+        <a class="plink" href="https://www.researchgate.net/publication/290559647">[ResearchGate]</a></li>
+    </ol>
+  </section>
+
+  <section id="conferences">
+    <h2>Conference Abstracts</h2>
+    <ol class="pubs">
+      <li><span class="venue">ISMRM 2027 · Submitted</span>
+        <span class="ptitle">ProTK-Net: A Probabilistic, Physics-Separable Network for Tracer-Kinetic Parameter Estimation in Glioma DCE-MRI</span>
+        <span class="authors"><b>P. K. Prajapati</b>, A. Kandpal, M. T. Sheikh, R. K. Singh, R. K. Gupta, A. Singh. Vancouver, Canada.</span></li>
+      <li><span class="venue">ISMRM 2027 · Submitted</span>
+        <span class="ptitle">Less Gadolinium, Same Tracer Kinetic Maps: A Generative, Physics Separable Estimator for DCE-MRI in Brain Tumor Patients</span>
+        <span class="authors"><b>P. K. Prajapati</b>, A. Kandpal, R. K. Singh, R. K. Gupta, A. Singh. Vancouver, Canada.</span></li>
+      <li><span class="venue">ISMRM 2025</span>
+        <span class="ptitle">Three-Point Deep Learning Framework for Protocol-Independent and AIF-Free DCE-MRI Parameter Estimation in Gliomas</span>
+        <span class="authors"><b>P. K. Prajapati</b>, A. Kandpal, S. Srivastava, R. K. Gupta, A. Singh. Honolulu, USA. Digital Poster.</span>
+        <a class="plink" href="https://doi.org/10.58530/2025/4289">[DOI]</a></li>
+      <li><span class="venue">ISMRM 2025</span>
+        <span class="ptitle">A Two Step Deep Learning Framework for Identifying Ischemic Stroke Core: Integration of Inception-v3 and MultiResU-Net on DWI and ADC MRI Images</span>
+        <span class="authors">A. Kandpal, <b>P. K. Prajapati</b>, S. Maurya, R. K. Gupta, A. Singh. Honolulu, USA. Digital Poster.</span>
+        <a class="plink" href="https://doi.org/10.58530/2025/1856">[DOI]</a></li>
+      <li><span class="venue">ISMRM 2024</span>
+        <span class="ptitle">Quantitative Analysis of DCE-MRI Data Using DL Model Based on Signal Intensity vs Concentration Curves</span>
+        <span class="authors"><b>P. K. Prajapati</b>, A. Kandpal, R. Jafari, R. K. Gupta, A. Singh. Singapore. Digital Poster.</span>
+        <a class="plink" href="https://doi.org/10.58530/2024/2120">[DOI]</a></li>
+      <li><span class="venue">ISMRM Workshop 2024</span>
+        <span class="ptitle">Denoising DCE-MRI Data Using Nadaraya-Watson Method: A Time-Efficient Approach for Improved Tracer Kinetic Maps</span>
+        <span class="authors"><b>P. K. Prajapati</b>, A. Kandpal, R. K. Gupta, A. Singh. 2nd ISMRM Workshop on Accessible MRI, New Delhi, India. Poster.</span>
+        <a class="plink" href="https://cds.ismrm.org/protected/Accessible-24/abstracts/Prajapati.pdf">[PDF]</a></li>
+      <li><span class="venue">ISMRM 2023</span>
+        <span class="ptitle">Quantitative DCE-MRI Parameter Estimation Using Deep Learning Framework in Brain Tumor Patients</span>
+        <span class="authors"><b>P. K. Prajapati</b>, R. K. Gupta, A. Singh. Toronto, Canada. Digital Poster.</span>
+        <a class="plink" href="https://doi.org/10.58530/2023/5191">[DOI]</a></li>
+      <li><span class="venue">ASMRM 2023</span>
+        <span class="ptitle">Deep Learning Framework to Denoise DCE MRI Data</span>
+        <span class="authors"><b>P. K. Prajapati</b>, R. K. Gupta, A. Singh. 5th Annual Scientific Meeting of the Asian Society of Magnetic Resonance in Medicine. Poster.</span></li>
+    </ol>
+  </section>
+
+  <section id="education">
+    <h2>Education</h2>
+    <div class="entry">
+      <div class="top"><span class="title">Ph.D. in Biomedical Engineering, IIT Delhi</span><span class="date">Sep 2020 – Present</span></div>
+      <div class="sub">Centre for Biomedical Engineering · CGPA 9.17/10 · Advisor: Prof. Anup Singh, MedImg Lab</div>
+      <div class="sub">Thesis: Quantitative MRI and its Applications</div>
+    </div>
+    <div class="entry">
+      <div class="top"><span class="title">M.Tech. in Biomedical Engineering, IIT Ropar</span><span class="date">Jul 2018 – Jun 2020</span></div>
+      <div class="sub">Computational Biomedical Imaging Lab · CGPA 9.02/10 · Advisor: Dr. Deepti R. Bathula</div>
+      <div class="sub">Thesis: Colorectal cancer detection and segmentation in whole slide images (AUC 0.94, Dice 0.76)</div>
+    </div>
+    <div class="entry">
+      <div class="top"><span class="title">B.Tech. in Electrical and Electronics Engineering, AKGEC (AKTU)</span><span class="date">Aug 2012 – Jul 2016</span></div>
+      <div class="sub">Ghaziabad, India · 77.46%</div>
+    </div>
+  </section>
+
+  <section id="experience">
+    <h2>Experience</h2>
+    <div class="entry">
+      <div class="top"><span class="title">Research Intern, CARING Research, Mahajan Imaging</span><span class="date">May – Aug 2019</span></div>
+      <div class="sub">Knee cartilage segmentation from MRI · New Delhi</div>
+      <ul>
+        <li>Built an atlas-registration and cartilage segmentation pipeline with Elastix (Dice 0.94 on 20 knee MRI scans).</li>
+        <li>Automated cartilage thickness estimation, cutting analysis time from about 40 to 5 minutes per scan.</li>
+      </ul>
+    </div>
+    <div class="entry">
+      <div class="top"><span class="title">Student Intern, BHEL Insulator Plant</span><span class="date">Jun – Jul 2015</span></div>
+      <div class="sub">Insulator manufacturing, assembly and testing · Jagdishpur</div>
+    </div>
+    <div class="entry">
+      <div class="top"><span class="title">Student Intern, UNICON PLC Automation</span><span class="date">Jun – Jul 2014</span></div>
+      <div class="sub">Automatic bottle filling plant using PLC and SCADA · Lucknow</div>
+    </div>
+  </section>
+
+  <section id="teaching">
+    <h2>Teaching</h2>
+    <div class="entry">
+      <div class="top"><span class="title">Teaching Assistant, IIT Delhi</span><span class="date">2022 – Present</span></div>
+      <ul>
+        <li>Graduate courses across 6 semesters: Deep Learning for Medical Image Analysis (BML7381, BML815B), Medical Imaging (BML720), Biomedical Data Analysis (BML738), Biomedical Signal and Image Processing (BML735).</li>
+        <li>Sessions on ResNet, SVMs, logistic regression, quantitative imaging, and classical tumor segmentation in multiparametric MRI.</li>
+        <li>CEP Executive Programme for AI in Healthcare (2025–2026): taught sequence modelling (RNNs to LSTMs) and mentored two capstone teams of 14 participants each.</li>
+      </ul>
+    </div>
+    <div class="entry">
+      <div class="top"><span class="title">Lab Teaching Assistant, IIT Ropar</span><span class="date">2019 – 2020</span></div>
+      <div class="sub">Physics of Medical Imaging (BM609): ultrasound A/B/M-mode, Doppler and ultrasound CT experiments on phantoms.</div>
+    </div>
+  </section>
+
+  <section id="service">
+    <h2>Service &amp; Activities</h2>
+    <div class="entry">
+      <ul>
+        <li>CBME Placement Coordinator, CDCRC, IIT Ropar (2019–2020)</li>
+        <li>Secretary, IEEE EMBS Student Chapter, IIT Ropar (2019–2020)</li>
+        <li>Vice President, Pehchaan Ek Safar NGO: raised over Rs 2.5 lakh and led teaching and COVID device drives (2019–2020)</li>
+        <li>Team Lead, Project KHEL NGO: sport-based life skills for 200+ children in Lucknow (2017–2018)</li>
+        <li>2nd Position, Overall Championship and Water Polo, 58th Inter IIT Sports Meet (2025)</li>
+        <li>Silver Medal, 100 m Butterfly, ASISC National Swimming Championship (2011)</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2>Contact</h2>
+    <p>Centre for Biomedical Engineering, IIT Delhi, Hauz Khas, New Delhi 110016, India<br>
+    <a href="mailto:piyushkp27@gmail.com">piyushkp27@gmail.com</a></p>
+  </section>
+
+</main>
+
+<footer>© 2026 Piyush Kumar Prajapati</footer>
+
+</body>
 </html>
