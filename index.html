@@ -73,7 +73,6 @@
   .hero-links a:hover, .hero-links button:hover { background: rgba(255,255,255,.14); border-color: rgba(255,255,255,.45); text-decoration: none; transform: translateY(-1px); }
   .hero-links a.primary { background: #fff; color: var(--navy-deep); border-color: #fff; font-weight: 600; }
   .hero-links a.primary:hover { background: #e8eef9; }
-  .hero-links button.done { background: #2fbf71; border-color: #2fbf71; }
   .hero-links svg { width: 14px; height: 14px; }
 
   .hero-stage {
@@ -250,11 +249,6 @@
         <a href="https://scholar.google.com/citations?user=yC81rO8AAAAJ&amp;hl=en" target="_blank" rel="noopener">Google Scholar</a>
         <a href="https://github.com/piyushkp27" target="_blank" rel="noopener">GitHub</a>
         <a href="https://x.com/piyushkp27" target="_blank" rel="noopener">X</a>
-        <a href="mailto:piyushkp27@gmail.com">Email</a>
-        <button id="copyEmail" data-email="piyushkp27@gmail.com" title="Copy email address">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg>
-          <span>Copy email</span>
-        </button>
       </div>
     </div>
     <div class="hero-stage" id="stage">
@@ -447,15 +441,6 @@
   var root = document.documentElement;
 
 
-  /* Copy email */
-  var copyBtn = document.getElementById('copyEmail'), copyLabel = copyBtn.querySelector('span');
-  copyBtn.addEventListener('click', function () {
-    var email = copyBtn.getAttribute('data-email');
-    function done() { copyLabel.textContent = 'Copied'; copyBtn.classList.add('done');
-      setTimeout(function () { copyLabel.textContent = 'Copy email'; copyBtn.classList.remove('done'); }, 1600); }
-    if (navigator.clipboard) navigator.clipboard.writeText(email).then(done);
-    else { window.prompt('Copy email address:', email); }
-  });
 
   /* Hero lens: reveal the parametric map under the cursor */
   var stage = document.getElementById('stage'), map = document.getElementById('stageMap'), ring = document.getElementById('stageRing');
