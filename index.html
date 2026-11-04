@@ -121,7 +121,10 @@
   .intro p { font-size: 16px; }
 
 
-  .interests-line { color: var(--muted); font-size: 15px; margin-top: 16px; }
+  .bio { background: var(--card); border: 1px solid var(--rule); border-radius: 12px; padding: 24px 28px; }
+  .bio p:last-of-type { margin-bottom: 0; }
+  .interests-line { color: var(--muted); font-size: 14.5px; margin-top: 18px; padding-top: 16px; border-top: 1px solid var(--rule); line-height: 1.9; }
+  @media (max-width: 860px) { .bio { padding: 18px 18px; } }
 
   /* Publication controls */
   .controls { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; margin-bottom: 16px; }
@@ -265,11 +268,13 @@
 
     <section id="about" class="intro reveal">
       <h2>About</h2>
+      <div class="bio">
       <p>I am a PhD scholar at the <a href="https://cbme.iitd.ac.in/" target="_blank" rel="noopener">Centre for Biomedical Engineering, IIT Delhi</a>, where I work on quantitative MRI in the MedImg Lab. I am fortunate to be advised by Prof. Anup Singh.</p>
       <p>My research spans tracer-kinetic modelling for dynamic contrast-enhanced MRI, physics-separable and probabilistic neural networks, diffusion-based posterior estimation, and brain tumour segmentation. The common thread is making quantitative MRI fast and dependable enough for routine clinical use: estimators that run in seconds rather than minutes, report their own uncertainty, and hold up when the acquisition protocol or the contrast dose changes.</p>
-      <p>I am particularly interested in the point where imaging physics meets learning. Rather than treating the scanner as a black box, I build models around the signal equations, which is what lets them stay accurate at a quarter of the standard gadolinium dose and transfer across protocols. I also work on segmentation that generalises across tumour types and cohorts, and on perfusion-based mapping of tumour infiltration beyond the visible margin.</p>
+      <p>I am particularly interested in the point where imaging physics meets learning. Rather than treating the scanner as a black box, I build models around the signal equations, which is what lets them transfer across acquisition protocols and, as one application, stay accurate at a quarter of the standard gadolinium dose. I also work on segmentation that generalises across tumour types and cohorts, and on perfusion-based mapping of tumour infiltration beyond the visible margin.</p>
       <p>Before my PhD, I completed an M.Tech. in Biomedical Engineering at IIT Ropar, where I worked on histopathology image analysis with Dr. Deepti R. Bathula, and a B.Tech. in Electrical and Electronics Engineering, with earlier work in industrial automation.</p>
-      <p class="interests-line">Quantitative MRI, physics-informed neural networks, medical image analysis, deep learning, computer vision, generative models and diffusion, uncertainty quantification, image segmentation, AI in healthcare.</p>
+      <p class="interests-line">Quantitative MRI &nbsp;|&nbsp; Physics-informed neural networks &nbsp;|&nbsp; Medical image analysis &nbsp;|&nbsp; Deep learning &nbsp;|&nbsp; Computer vision &nbsp;|&nbsp; Generative models and diffusion &nbsp;|&nbsp; Uncertainty quantification &nbsp;|&nbsp; Image segmentation &nbsp;|&nbsp; AI in healthcare</p>
+      </div>
       <h3>News</h3>
       <ol class="news">
         <li><span class="d">2026</span><span>Five abstracts submitted to ISMRM 2027, Vancouver, including two first-author works on ProTK-Net and a low-dose generative tracer-kinetic estimator.</span></li>
