@@ -57,7 +57,8 @@
     min-height: 440px;
   }
   .hero-text { padding: 56px 32px 48px; display: flex; flex-direction: column; justify-content: center; }
-  .hero-text .eyebrow { color: #8fb0ea; font-size: 13px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; margin-bottom: 14px; }
+  .hero-text .eyebrow { color: #8fb0ea; font-size: 13px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; margin-bottom: 14px; display: inline-block; white-space: nowrap; }
+  .hero-text h1 { display: inline-block; }
   .hero-text h1 {
     font-family: inherit; letter-spacing: -0.02em; font-weight: 600;
     font-size: clamp(2rem, 4vw, 3rem); line-height: 1.1; margin: 0 0 12px; color: #fff;
@@ -459,6 +460,16 @@
   var root = document.documentElement;
 
 
+
+  /* Match the eyebrow line width to the name */
+  var eyebrow = document.querySelector('.hero-text .eyebrow'), nameEl = document.querySelector('.hero-text h1');
+  function fitEyebrow() {
+    eyebrow.style.fontSize = '13px';
+    var target = nameEl.getBoundingClientRect().width, w = eyebrow.getBoundingClientRect().width;
+    if (w > 0) eyebrow.style.fontSize = (13 * target / w).toFixed(2) + 'px';
+  }
+  fitEyebrow(); window.addEventListener('resize', fitEyebrow);
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(fitEyebrow);
 
   /* Hero lens: reveal the parametric map under the cursor */
   var stage = document.getElementById('stage'), map = document.getElementById('stageMap'), ring = document.getElementById('stageRing');
