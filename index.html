@@ -163,6 +163,15 @@
   .authors { color: var(--muted); }
   .authors b { color: var(--navy); font-weight: 600; }
   .plink { font-size: 13px; font-weight: 600; margin-left: 4px; }
+  .pager { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-top: 14px; }
+  .pager button {
+    border: 1px solid var(--rule); background: var(--card); color: var(--navy);
+    font-size: 13.5px; font-weight: 500; padding: 6px 14px; border-radius: 8px; transition: all .2s;
+  }
+  .pager button:hover:not(:disabled) { border-color: var(--blue); color: var(--blue); }
+  .pager button:disabled { opacity: .4; cursor: default; }
+  .pager span { color: var(--muted); font-size: 13px; }
+  .pager.hidden { display: none; }
   .empty { display: none; color: var(--muted); font-size: 14px; padding: 16px; text-align: center; border: 1px dashed var(--rule); border-radius: 8px; }
   .empty.show { display: block; }
   mark { background: #ffe9a8; color: inherit; border-radius: 2px; padding: 0 1px; }
@@ -358,6 +367,11 @@
           <a class="plink" href="https://www.researchgate.net/publication/290559647" target="_blank" rel="noopener">[ResearchGate]</a></li>
       </ol>
       <div class="empty" id="pubEmpty">No publications match this filter.</div>
+      <div class="pager" id="pager">
+        <button id="pagePrev" aria-label="Previous five">&#8249; Previous</button>
+        <span id="pageInfo"></span>
+        <button id="pageNext" aria-label="Next five">Next &#8250;</button>
+      </div>
     </section>
 
     <div class="grid2">
@@ -482,20 +496,39 @@
       if (!/<mark>/.test(el.innerHTML)) el.innerHTML = el.innerHTML.replace(re, '<mark>$1</mark>');
     });
   }
-  function apply() {
-    var q = search.value.trim().toLowerCase(), shown = 0;
+  var PAGE = 5, page = 0;
+  var pager = document.getElementById('pager'), prevBtn = document.getElementById('pagePrev'), nextBtn = document.getElementById('pageNext'), infoEl = document.getElementById('pageInfo');
+  function apply(keepPage) {
+    if (!keepPage) page = 0;
+    var q = search.value.trim().toLowerCase(), matched = [];
     items.forEach(function (li) {
       var ok = (type === 'all' || li.getAttribute('data-type') === type)
             && (!firstOnly.checked || li.getAttribute('data-first') === '1')
             && (!q || li.getAttribute('data-text').indexOf(q) !== -1);
-      li.classList.toggle('hidden', !ok);
-      if (ok) { shown++; highlight(li, q); }
+      if (ok) matched.push(li); else li.classList.add('hidden');
     });
-    countEl.textContent = shown === items.length ? items.length + ' total' : shown + ' of ' + items.length;
-    emptyEl.classList.toggle('show', shown === 0);
+    var pages = Math.max(1, Math.ceil(matched.length / PAGE));
+    page = Math.min(page, pages - 1);
+    matched.forEach(function (li, i) {
+      var on = i >= page * PAGE && i < (page + 1) * PAGE;
+      li.classList.toggle('hidden', !on);
+      if (on) highlight(li, q);
+    });
+    countEl.textContent = matched.length === items.length ? items.length + ' total' : matched.length + ' of ' + items.length;
+    emptyEl.classList.toggle('show', matched.length === 0);
+    pager.classList.toggle('hidden', matched.length <= PAGE);
+    infoEl.textContent = matched.length ? (page * PAGE + 1) + '\u2013' + Math.min(matched.length, (page + 1) * PAGE) + ' of ' + matched.length : '';
+    prevBtn.disabled = page === 0; nextBtn.disabled = page >= pages - 1;
   }
-  search.addEventListener('input', apply);
-  firstOnly.addEventListener('change', apply);
+  function turn(d) {
+    page += d; apply(true);
+    var top = document.getElementById('publications').getBoundingClientRect().top;
+    if (top < 0) window.scrollTo({ top: window.scrollY + top - 70, behavior: 'smooth' });
+  }
+  prevBtn.addEventListener('click', function () { turn(-1); });
+  nextBtn.addEventListener('click', function () { turn(1); });
+  search.addEventListener('input', function () { apply(); });
+  firstOnly.addEventListener('change', function () { apply(); });
   chips.forEach(function (c) {
     c.addEventListener('click', function () {
       chips.forEach(function (x) { x.classList.remove('active'); });
